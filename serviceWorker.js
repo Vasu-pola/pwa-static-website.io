@@ -1,4 +1,5 @@
 const CACHE_NAME = "static-website-v1";
+
 const urlsToCache = [
   "/index.html",
   "images/logo.png",
@@ -14,12 +15,13 @@ const urlsToCache = [
   "/images/woodendishes.jpg",
   "/images/favicon.ico",
   "/images/android-chrome-192x192.png",
-
 ];
+
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)));
 });
+
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
@@ -51,6 +53,7 @@ self.addEventListener("fetch", (event) => {
       })
   );
 });
+
 
 this.addEventListener("activate", (event) => {
   const cacheWhitelist = [CACHE_NAME];
