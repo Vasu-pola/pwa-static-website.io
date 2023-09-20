@@ -4,6 +4,7 @@ const urlsToCache = [
   "/index.html",
   "images/logo.png",
   "styles.css",
+  "bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css",
   "/manifest.webmanifest",
   "/images/bikeImage.jpg",
@@ -15,13 +16,19 @@ const urlsToCache = [
   "/images/woodendishes.jpg",
   "/images/favicon.ico",
   "/images/android-chrome-192x192.png",
+  "/about.html",
+  "images/chair3.jpg",
+  "images/aboutdininghd2.jpg",
+  "images/abouthd.png",
 ];
 
-
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache);
+    })
+  );
 });
-
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
@@ -53,7 +60,6 @@ self.addEventListener("fetch", (event) => {
       })
   );
 });
-
 
 this.addEventListener("activate", (event) => {
   const cacheWhitelist = [CACHE_NAME];

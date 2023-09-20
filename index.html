@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-
+<head>
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
 </meta>
 <link rel="stylesheet" href="styles.css">
@@ -18,7 +18,9 @@
 <link rel="manifest" href="/manifest.webmanifest" />
 
 <script>
+  //Check the browser supports service workers
   if ('serviceWorker' in navigator) {
+    //register the service worker 
     navigator.serviceWorker.register('serviceWorker.js')
       .then(registration => {
         console.log('Service Worker registered with scope:', registration.scope);
@@ -29,6 +31,46 @@
   }
 
 
+  // Check if the browser supports service workers and the beforeinstallprompt event.
+// if ('serviceWorker' in navigator && 'BeforeInstallPromptEvent' in window) {
+  
+//   window.addEventListener('beforeinstallprompt', (event) => {
+//     // Prevent the default behavior of the event to suppress the automatic install prompt.
+//     event.preventDefault();
+//     console.log(event,"event")
+//     // Store the event for later use.
+//     const installPromptEvent = event;
+
+//     // Create a button or other UI element to trigger the installation prompt.
+//     const installButton = document.getElementById('install-button');
+//     alert(installButton,"istall")
+//     // Show the install button (you need to add this button to your HTML).
+//     installButton.style.display = 'block';
+
+//     // Handle the click event on the install button.
+//     installButton.addEventListener('click', () => {
+//       // Show the installation prompt to the user.
+//       installPromptEvent.prompt();
+
+//       // Wait for the user's choice.
+//       installPromptEvent.userChoice.then((choiceResult) => {
+//         if (choiceResult.outcome === 'accepted') {
+//           // User accepted the installation.
+//           console.log('User accepted the installation');
+//         } else {
+//           // User declined the installation.
+//           console.log('User declined the installation');
+//         }
+
+//         // Reset the install button's display.
+//         installButton.style.display = 'none';
+//       });
+//     });
+//   });
+// }
+
+
+
 </script>
 </head>
 <body>
@@ -36,7 +78,7 @@
       <div class="nav-wrapper">
         <div class="logo-container">
           <a href="#"><img src="images/logo.png" alt="logo" style="height: 4.8rem;"></a>
-          <a href="#"><h1 style="color:black"><b>WoodM4</b></h1></a>
+          <a href="#"><h1 style="color:black"><b>CARPENTRY</b></h1></a>
         </div>
         <nav>
             <input class="hidden" type="checkbox" id="menuToggle">
@@ -47,38 +89,32 @@
             </label>
             <div class="nav-container">
                 <ul class="nav-tabs">
-                    <li class="nav-tab">Home</li>
-                    <li class="nav-tab">About</li>
-                    <li class="nav-tab">Live Demo Blocks</li>
-                    <!-- <li class="nav-tab"  href="#" >
-                      <button class="buyButton">BUY NOW</button>
-                    </li>  -->
+                  <li class="nav-tab" > <a href="/">Home</a></li>
+                    <li class="nav-tab" ><a href="/about.html">About</a></li>
+                    <li class="nav-tab">Contact us</li>
                 </ul>
             </div>
         </nav>
     </div>
+   
 <section class="header1 cid-rArAIiVrZd" id="header01-1n" data-sortbtn="btn-primary">
-
     <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);"></div>
-
     <div class="container">
         <div class="row justify-content-md-end">
             <div class="mbr-white col-lg-6 col-md-12">
                 <h2 class="mbr-section-title align-left mbr-bold pb-4 mbr-fonts-style display-1">
-
                     <div>
                     </div>
                     <div>Wooden </div><div>Furniture Store</div>
                 </h2>
-				
-				<h1 class="mbr-section-title align-left mbr-bold pb-4 mbr-fonts-style display-4">
-                    <div>Furniture Website Template</div>
+				        <h1 class="mbr-section-title align-left mbr-bold pb-4 mbr-fonts-style display-4">
+                  <div>Furniture Website Template</div>
                 </h1>
-                
                 <p class="mbr-text pb-4 align-left mbr-fonts-style display-5">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales Dellentesque felis, in
                     dignissim diam eleifend et. Aenean sagittis lacus sed augue mollis convallis. Vivamus orci ligula,
-                    rhoncus a finibus at, molestie bibendum ex. Morbi lacinia eros non orci eleifend elementum.</p>
+                    rhoncus a finibus at, molestie bibendum ex. Morbi lacinia eros non orci eleifend elementum.
+                </p>
             </div>
         </div>
     </div>   
@@ -87,8 +123,8 @@
 <section>
     <section>
         <div class="col-md-6 col-lg-12" style="text-align: center; background-color: #f1eeea; padding-top: 45px; padding-bottom: 45px">
-            <div><h1><b>Our Features</b></h1></div>
-            <div><h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare risus vel tellus tempor tempor. Suspendisse ut lobortis sem, aliquam consequat nisi.</h4></div>
+          <div><h1><b>Our Features</b></h1></div>
+          <div><h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare risus vel tellus tempor tempor. Suspendisse ut lobortis sem, aliquam consequat nisi.</h4></div>
         </div>    
     </section>
     <section>
@@ -107,7 +143,8 @@
               <img src="/images/books.jpg" alt="wood" style="width:100%">
               <h2 style="text-align: center">Eco Production</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare risus vel tellus tempor tempor. Suspendisse ut lobortis sem, aliquam consequat nisi. Praesent ac scelerisque nulla.</p>
-            </div>  
+            </div>
+        </div>  
     </section>
 </section>
 <section style="background-color: #eee8df">
@@ -144,6 +181,8 @@
         </div>
       </div>
 </section>
+
+<!-- Carosules -->
 <section class="sliding">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -182,6 +221,8 @@
 </div>
 </section>
 
+
+<!-- Prices -->
 <section>
     <div class="w3-row-padding">
         <div class="w3-col l3 m6 w3-margin-bottom">
@@ -206,6 +247,8 @@
           </div>
       </div>
 </section>
+
+<!-- Only natural materials section -->
 <section>
     <div class="w3-row w3-padding-645" id="about">
         <div class="w3-col m6 w3-padding-large">
@@ -228,10 +271,11 @@
 <div class="panel">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
-
-           </div>
+      </div>
       </div>
 </section>
+
+ <!-- why You choose section -->
 <section style="background-color: #f1eeea">
     <div class="w3-row w3-padding-64" id="about">
         <div class="w3-col m6 w3-padding-large">
@@ -258,18 +302,11 @@
            </div>
       </div>
 </section>
-<section class="image1 cid-rArJMbsmCO" id="image01-21" data-sortbtn="btn-primary">
-    <div class="container">
 
-    </div>
-</section>
- <section class="unique_wood_products">
-    <div class="w3-row w3-padding-64 contact_address" id="about">
-        <div class="w3-col m6 w3-padding-large">
-          <h1 style="font-size: 5.2rem"><b>Contacts</b></h1>
-  <div class="google-map responsive-map-container"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAEIpgj38KyLFELm2bK9Y7krBkz1K-cMq8&amp;q=place_id:ChIJn6wOs6lZwokRLKy1iqRcoKw" allowfullscreen="" width="600" height="450"></iframe></div>
-</div>
-      
+
+
+
+ <!-- <section class="unique_wood_products col-12">
         <div class="w3-col m6 w3-padding-large">
             <h2><b>Unique Wood Products</b></h1><br>
           <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales Dellentesque felis, in dignissim diam eleifend.</h5><br>
@@ -284,55 +321,51 @@
            </div>
       </div>
     </div>
-</section >
-    <section class="address">
-        <div class="" style="text-align: center;">
-            <div class="logo1">
-                <img src="https://mobirise.com/extensions/woodm4/assets/images/logo2.png">
-            </div><br><br><br>
-            <div class="row woodenCls1">
-                <div class="">
-                    <h3 class="card-title mbr-bold mbr-fonts-style display-5" style="color: #b69b74">
-                        Office</h3>
-                    <p class="mbr-text mbr-fonts-style display-7" style="color: white">New York<br>8345 State</p>
-                </div>
-                <div class="">
-                    <h3 class="card-title mbr-bold mbr-fonts-style display-5" style="color: #b69b74">Contacts</h3>
-                    <p class="mbr-text mbr-fonts-style display-7" style="color: white">
-                        00-12-34-56-78<br>support@mobirise.com</p>
-                </div>
-                <div class="">
-                    <h3 class="card-title mbr-bold mbr-fonts-style display-5" style="color: #b69b74">
-                        Address</h3>
-                    <p class="mbr-text mbr-fonts-style display-7" style="color: white">
-                        7345 Street<br>Staten Island<br></p>
-                </div>
-              </div>
-            
-            <div class="pt-5 align-center social_icons">
-                <div class="icon-wrap" style="color: #b69b74">
-                    <i style="font-size:26px" class="fa">&#xf09a;</i><br><br><br>
-                    <i style="font-size:26px" class="fa">&#xf16d;</i>
-                   
-                   </div>
-                   <span style="border: 1px solid #b69b74; padding-top: 4.5rem"></span>
-            </div>
-          
-            </div>
+</section > -->
 
-        </div>
-    </section>
-        <section class="footer2 cid-rArZNHTQFZ" id="footer02-1t" data-sortbtn="btn-primary">
-            <div class="container">
-                <div class="media-container-row align-center mbr-white">
-                    <div class="col-12">
-                        <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                            &#9400 Copyright 2019 Mobirise - Furniture Website Template - All Rights Reserved
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+
+
+<section class="address col-12 pt-3">
+  <div class="container text-center">
+    <div class="logo1">
+      <img src="images/logo.png" />
+    </div>
+    <div class="row pt-5">
+      <div class="col-md-4">
+        <h3 style="color: #b69b74">Office</h3>
+        <p style="color: white">New York<br />8345 State</p>
+      </div>
+      <div class="col-md-4">
+        <h3 style="color: #b69b74">Contacts</h3>
+        <p style="color: white">00-12-34-56-78<br />support@mobirise.com</p>
+      </div>
+      <div class="col-md-4">
+        <h3 style="color: #b69b74">Address</h3>
+        <p style="color: white">7345 Street<br />Staten Island<br /></p>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div class="icon-wrap" style="color: #b69b74">
+        <i style="font-size: 26px" class="fa">&#xf09a;</i>
+      </div>
+      <div class="icon-wrap" style="color: #b69b74; padding-bottom: 2.5rem">
+        <i style="font-size: 26px" class="fa">&#xf16d;</i>
+      </div>
+      <span style="border: 1px solid #b69b74; padding-top: 2rem"></span>
+    </div>
+  </div>
+</section>
+<section class="footer2 cid-rArZNHTQFZ" id="footer02-1t" data-sortbtn="btn-primary">
+  <div class="container">
+    <div class="media-container-row align-center mbr-white">
+      <div class="col-12">
+        <p class="mbr-text mb-0 mbr-fonts-style display-7">Copyright 2019 Mobirise - Furniture Website Template - All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</section>
         <script>
         var acc = document.getElementsByClassName("accordion");
 var i;
@@ -358,8 +391,8 @@ for (i = 0; i < acc.length; i++) {
                 x.className = "topnav";
               }
             }
-            </script>
-            <script>
+        </script>
+        <script>
                 function myFunction() {
                   var x = document.getElementById("myTopnav");
                   if (x.className === "topnav") {
@@ -368,46 +401,45 @@ for (i = 0; i < acc.length; i++) {
                     x.className = "topnav";
                   }
                 }
-                </script>
-                 <script>
-                    function myFunction() {
-                      var x = document.getElementById("myTopnav");
-                      if (x.className === "topnav") {
-                        x.className += " responsive";
-                      } else {
-                        x.className = "topnav";
-                      }
-                    }
-                    </script>
-              <!-- <script src="../assets/smoothscroll/smooth-scroll.js"></script> -->
-              <script>
-                let slideIndex = 1;
-                showSlides(slideIndex);
-                
-                function plusSlides(n) {
-                  showSlides(slideIndex += n);
-                }
-                
-                function currentSlide(n) {
-                  showSlides(slideIndex = n);
-                }
-                
-                function showSlides(n) {
-                  let i;
-                  let slides = document.getElementsByClassName("mySlides");
-                  let dots = document.getElementsByClassName("dot");
-                  if (n > slides.length) {slideIndex = 1}    
-                  if (n < 1) {slideIndex = slides.length}
-                  for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";  
-                  }
-                  for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                  }
-                  // slides[slideIndex-1].style.display = "block";  
-                  // dots[slideIndex-1].className += " active";
-                }
-                </script>
+        </script>
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+        </script>
+        <script>
+          let slideIndex = 1;
+          showSlides(slideIndex);
+          
+          function plusSlides(n) {
+            showSlides(slideIndex += n);
+          }
+          
+          function currentSlide(n) {
+            showSlides(slideIndex = n);
+          }
+          
+          function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            // slides[slideIndex-1].style.display = "block";  
+            // dots[slideIndex-1].className += " active";
+          }
+        </script>
 
 </body>
 </html>
